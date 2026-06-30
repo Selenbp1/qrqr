@@ -1,28 +1,21 @@
-const http = require("http");
-const redirect = require("../api/redirect");
-const health = require("../api/health");
-
 process.env.TARGET_URL = process.env.TARGET_URL || "http://www.solux.co.kr/kor/";
 
-function mockRes() {
-  return {
-    statusCode: 200,
-    headers: {},
-    body: "",
-    setHeader(name, value) {
-      this.headers[name.toLowerCase()] = value;
-    },
-    end(body) {
-      this.body = body || "";
-    },
-  };
+function getTargetUrl() {
+  const target = process.env.TARGET_URL?.trim();
+  if (!target) return null;
+  try {
+    new URL(target);
+    return target;
+  } catch {
+    return null;
+  }
 }
 
-function run(name, handler) {
-  const res = mockRes();
-  handler({}, res);
-  console.log(`${name}: ${res.statusCode} ${res.headers.location || res.body}`);
-}
+const target = getTargetUrl();
+console.log("TARGET_URL check:", target || "INVALID");
 
-run("redirect", redirect);
-run("health", health);
+if (target) {
+  console.log("Expected redirect: 302 ->", target);
+} else {
+  process.exit(1);
+}

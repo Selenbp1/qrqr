@@ -1,8 +1,10 @@
-const { sendJson, getTargetUrl } = require("./_lib/http");
+export const config = { runtime: "edge" };
 
-module.exports = (_req, res) => {
-  sendJson(res, 200, {
-    status: "ok",
-    target: getTargetUrl(),
-  });
-};
+export default function handler() {
+  const target = process.env.TARGET_URL?.trim() || null;
+
+  return new Response(
+    JSON.stringify({ status: "ok", target }),
+    { status: 200, headers: { "Content-Type": "application/json" } }
+  );
+}
