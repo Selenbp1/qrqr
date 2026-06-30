@@ -1,0 +1,24 @@
+{
+  "name": "solux-url",
+  "version": "1.0.0",
+  "description": "Fixed QR code redirect service for Solux",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "configure-local": "node src/configure-local.js",
+    "generate-qr": "node src/generate-qr.js",
+    "sync-target": "node src/sync-target.js",
+    "upload": "node src/upload-ftp.js",
+    "deploy:vercel": "vercel --prod"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "basic-ftp": "^5.0.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "qrcode": "^1.5.4"
+  }
+}

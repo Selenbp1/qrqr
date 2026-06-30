@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/go", "destination": "/api/redirect" },
+    { "source": "/", "destination": "/api/redirect" }
+  ]
+}
