@@ -1,7 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 const QRCode = require("qrcode");
-const { PUBLIC_URL } = require("./config");
+const { PUBLIC_URL, requirePublicUrl } = require("./config");
+
+requirePublicUrl();
 
 const outputDir = path.join(__dirname, "..", "public");
 const outputPath = path.join(outputDir, "qr.png");

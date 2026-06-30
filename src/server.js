@@ -1,6 +1,14 @@
 const express = require("express");
 const path = require("path");
-const { PORT, HOST, PUBLIC_URL, TARGET_URL } = require("./config");
+const {
+  PORT,
+  HOST,
+  PUBLIC_URL,
+  TARGET_URL,
+  requireTargetUrl,
+} = require("./config");
+
+requireTargetUrl();
 
 const app = express();
 

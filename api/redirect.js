@@ -1,10 +1,14 @@
-module.exports = (req, res) => {
-  const target = process.env.TARGET_URL;
+const { sendJson, sendRedirect, getTargetUrl } = require("./_lib/http");
+
+module.exports = (_req, res) => {
+  const target = getTargetUrl();
 
   if (!target) {
-    res.status(500).json({ error: "TARGET_URL is not set in Vercel environment variables" });
+    sendJson(res, 500, {
+      error: "TARGET_URL is not set or invalid. Set it in Vercel Environment Variables.",
+    });
     return;
   }
 
-  res.redirect(302, target);
+  sendRedirect(res, 302, target);
 };

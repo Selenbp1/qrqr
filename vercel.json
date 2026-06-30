@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/go", "destination": "/api/redirect" },
+    { "source": "/health", "destination": "/api/health" },
     { "source": "/", "destination": "/api/redirect" }
   ]
 }

@@ -10,6 +10,7 @@
     "generate-qr": "node src/generate-qr.js",
     "sync-target": "node src/sync-target.js",
     "upload": "node src/upload-ftp.js",
+    "test:vercel": "node scripts/test-vercel-handlers.js",
     "deploy:vercel": "vercel --prod"
   },
   "engines": {

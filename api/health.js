@@ -1,6 +1,8 @@
+const { sendJson, getTargetUrl } = require("./_lib/http");
+
 module.exports = (_req, res) => {
-  res.json({
+  sendJson(res, 200, {
     status: "ok",
-    target: process.env.TARGET_URL || null,
+    target: getTargetUrl(),
   });
 };
