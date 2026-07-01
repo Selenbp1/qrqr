@@ -1,6 +1,6 @@
 {
   "name": "solux-url",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Fixed QR code redirect service for Solux",
   "main": "src/server.js",
   "scripts": {
