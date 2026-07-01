@@ -1,0 +1,3 @@
+qr1.png	https://qrqr-profile.vercel.app/go
+qr2.png	https://qrqr-soq.vercel.app/go
+qr.png	https://qrqr-profile.vercel.app/go

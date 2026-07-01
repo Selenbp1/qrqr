@@ -1,7 +1,22 @@
-# GitHub Pages 활성화 방법
-# 1. https://github.com/Selenbp1/qrqr/settings/pages 접속
-# 2. Build and deployment > Source: "GitHub Actions" 선택
-# 3. Actions 탭에서 "Deploy GitHub Pages" 워크플로 실행 확인
-# 4. 완료 후 PDF 주소:
-#    https://selenbp1.github.io/qrqr/brochure-kor.pdf
-#    https://selenbp1.github.io/qrqr/brochure-eng.pdf
+GitHub Pages 설정 (가장 쉬운 방법)
+================================
+
+1. 브라우저에서 접속:
+   https://github.com/Selenbp1/qrqr/settings/pages
+
+2. Build and deployment > Source:
+   "Deploy from a branch" 선택  (GitHub Actions 아님!)
+
+3. Branch: main  /  Folder: /docs  → Save
+
+4. 1~2분 후 아래 주소 확인:
+   https://selenbp1.github.io/qrqr/brochure-kor.pdf
+   https://selenbp1.github.io/qrqr/brochure-eng.pdf
+
+Vercel TARGET_URL (각 프로젝트 Production):
+  profile → https://selenbp1.github.io/qrqr/brochure-kor.pdf
+  soq     → https://selenbp1.github.io/qrqr/brochure-eng.pdf
+
+QR 고정 주소:
+  qr1 → https://qrqr-profile.vercel.app/go
+  qr2 → https://qrqr-soq.vercel.app/go
