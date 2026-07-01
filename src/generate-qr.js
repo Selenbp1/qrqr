@@ -8,8 +8,8 @@ requirePublicUrls();
 const outputDir = path.join(__dirname, "..", "public");
 
 const qrItems = [
-  { file: "qr1.png", url: PUBLIC_URL_1, label: "QR 1 (go1)" },
-  { file: "qr2.png", url: PUBLIC_URL_2, label: "QR 2 (go2)" },
+  { file: "qr1.png", url: PUBLIC_URL_1, label: "QR 1 (profile)" },
+  { file: "qr2.png", url: PUBLIC_URL_2, label: "QR 2 (soq)" },
 ];
 
 async function generate() {
