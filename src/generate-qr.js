@@ -35,6 +35,13 @@ async function generate() {
     margin: 2,
     errorCorrectionLevel: "M",
   });
+
+  const manifest = qrItems
+    .map((item) => `${item.file}\t${item.url}`)
+    .concat([`qr.png\t${PUBLIC_URL_1}`])
+    .join("\n");
+  fs.writeFileSync(path.join(outputDir, "qr-urls.txt"), manifest + "\n", "utf8");
+  console.log("Saved: public/qr-urls.txt");
 }
 
 generate().catch((err) => {
