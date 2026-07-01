@@ -1,12 +1,17 @@
-module.exports = (req, res) => {
-  const target = process.env.TARGET_URL?.trim();
+module.exports = (_req, res) => {
+  const target =
+    process.env.TARGET_URL?.trim() ||
+    process.env.TARGET_URL_1?.trim() ||
+    process.env.TARGET_URL_2?.trim() ||
+    null;
 
   if (!target) {
     res.statusCode = 500;
     res.setHeader("Content-Type", "application/json; charset=utf-8");
     res.end(
       JSON.stringify({
-        error: "TARGET_URL is not set in Vercel Environment Variables.",
+        error:
+          "Set TARGET_URL (or TARGET_URL_1 / TARGET_URL_2) in Vercel Environment Variables.",
       })
     );
     return;
@@ -17,7 +22,7 @@ module.exports = (req, res) => {
   } catch {
     res.statusCode = 500;
     res.setHeader("Content-Type", "application/json; charset=utf-8");
-    res.end(JSON.stringify({ error: "TARGET_URL is not a valid URL." }));
+    res.end(JSON.stringify({ error: "Target URL is invalid." }));
     return;
   }
 
