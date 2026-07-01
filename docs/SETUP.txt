@@ -1,0 +1,7 @@
+# GitHub Pages 활성화 방법
+# 1. https://github.com/Selenbp1/qrqr/settings/pages 접속
+# 2. Build and deployment > Source: "GitHub Actions" 선택
+# 3. Actions 탭에서 "Deploy GitHub Pages" 워크플로 실행 확인
+# 4. 완료 후 PDF 주소:
+#    https://selenbp1.github.io/qrqr/brochure-kor.pdf
+#    https://selenbp1.github.io/qrqr/brochure-eng.pdf
