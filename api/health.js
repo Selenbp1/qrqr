@@ -1,14 +1,10 @@
-export const config = { runtime: "edge" };
-
-export default function handler() {
-  const target =
-    process.env.TARGET_URL?.trim() ||
-    process.env.TARGET_URL_1?.trim() ||
-    process.env.TARGET_URL_2?.trim() ||
-    null;
-
-  return new Response(
-    JSON.stringify({ status: "ok", target }),
-    { status: 200, headers: { "Content-Type": "application/json" } }
+module.exports = (_req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json; charset=utf-8");
+  res.end(
+    JSON.stringify({
+      status: "ok",
+      target: process.env.TARGET_URL?.trim() || null,
+    })
   );
-}
+};

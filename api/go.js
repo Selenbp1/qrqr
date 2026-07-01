@@ -1,32 +1,27 @@
-export const config = { runtime: "edge" };
+module.exports = (req, res) => {
+  const target = process.env.TARGET_URL?.trim();
 
-function getTarget() {
-  const target =
-    process.env.TARGET_URL?.trim() ||
-    process.env.TARGET_URL_1?.trim() ||
-    process.env.TARGET_URL_2?.trim();
-
-  if (!target) return null;
+  if (!target) {
+    res.statusCode = 500;
+    res.setHeader("Content-Type", "application/json; charset=utf-8");
+    res.end(
+      JSON.stringify({
+        error: "TARGET_URL is not set in Vercel Environment Variables.",
+      })
+    );
+    return;
+  }
 
   try {
     new URL(target);
-    return target;
   } catch {
-    return null;
-  }
-}
-
-export default function handler() {
-  const target = getTarget();
-
-  if (!target) {
-    return new Response(
-      JSON.stringify({
-        error: "TARGET_URL is not set. Add it in Vercel Environment Variables.",
-      }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
-    );
+    res.statusCode = 500;
+    res.setHeader("Content-Type", "application/json; charset=utf-8");
+    res.end(JSON.stringify({ error: "TARGET_URL is not a valid URL." }));
+    return;
   }
 
-  return Response.redirect(target, 302);
-}
+  res.statusCode = 302;
+  res.setHeader("Location", target);
+  res.end();
+};

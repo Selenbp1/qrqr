@@ -2,8 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     { "source": "/go", "destination": "/api/go" },
-    { "source": "/go1", "destination": "/api/go1" },
-    { "source": "/go2", "destination": "/api/go2" },
     { "source": "/health", "destination": "/api/health" }
   ]
 }
