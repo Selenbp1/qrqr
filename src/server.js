@@ -3,30 +3,34 @@ const path = require("path");
 const {
   PORT,
   HOST,
-  PUBLIC_URL,
-  TARGET_URL,
-  requireTargetUrl,
+  PUBLIC_URL_1,
+  PUBLIC_URL_2,
+  TARGET_URL_1,
+  TARGET_URL_2,
+  requireTargets,
 } = require("./config");
 
-requireTargetUrl();
+requireTargets();
 
 const app = express();
 
-function redirectToTarget(_req, res) {
-  res.redirect(302, TARGET_URL);
+function redirect(res, target) {
+  res.redirect(302, target);
 }
 
-app.get("/", redirectToTarget);
-app.get("/go", redirectToTarget);
+app.get("/go1", (_req, res) => redirect(res, TARGET_URL_1));
+app.get("/go2", (_req, res) => redirect(res, TARGET_URL_2));
+app.get("/go", (_req, res) => redirect(res, TARGET_URL_1));
 
 app.get("/health", (_req, res) => {
-  res.json({ status: "ok", target: TARGET_URL });
+  res.json({ status: "ok", target1: TARGET_URL_1, target2: TARGET_URL_2 });
 });
 
 app.use(express.static(path.join(__dirname, "..", "public")));
+app.use("/docs", express.static(path.join(__dirname, "..", "docs")));
 
 app.listen(PORT, HOST, () => {
   console.log(`Redirect server running on http://${HOST}:${PORT}`);
-  console.log(`Public URL (QR): ${PUBLIC_URL}`);
-  console.log(`Target URL:        ${TARGET_URL}`);
+  console.log(`QR 1: ${PUBLIC_URL_1} -> ${TARGET_URL_1}`);
+  console.log(`QR 2: ${PUBLIC_URL_2} -> ${TARGET_URL_2}`);
 });
