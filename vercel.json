@@ -1,12 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "",
-  "buildCommand": "",
-  "framework": null,
   "rewrites": [
-    { "source": "/go1", "destination": "/api/redirect?n=1" },
-    { "source": "/go2", "destination": "/api/redirect?n=2" },
-    { "source": "/go", "destination": "/api/redirect?n=1" },
+    { "source": "/go1", "destination": "/api/go1" },
+    { "source": "/go2", "destination": "/api/go2" },
+    { "source": "/go", "destination": "/api/go1" },
     { "source": "/health", "destination": "/api/health" }
   ]
 }
