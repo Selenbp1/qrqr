@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
+    "build": "node -e \"console.log('Vercel: API only, no build step')\"",
     "configure-local": "node src/configure-local.js",
     "generate-qr": "node src/generate-qr.js",
     "sync-target": "node src/sync-target.js",

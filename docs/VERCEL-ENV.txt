@@ -1,0 +1,23 @@
+# Vercel Environment Variables 설정 가이드
+# =====================================
+#
+# 환경 변수 변경 후 빌드가 실패하면 이전 배포가 그대로 유지됩니다.
+# Deployments 탭에서 빌드 로그의 빨간 에러를 확인하세요.
+#
+# --- qrqr-profile.vercel.app ---
+# TARGET_URL_1 = https://selenbp1.github.io/qrqr/brochure-kor.pdf
+# (또는 TARGET_URL 동일 값)
+#
+# --- qrqr-soq.vercel.app ---
+# TARGET_URL_2 = https://selenbp1.github.io/qrqr/soq.pdf
+# (또는 TARGET_URL 동일 값)
+#
+# 주의:
+# - 값에 따옴표(") 넣지 마세요
+# - 앞뒤 공백 없이 URL만 입력
+# - Environment: Production 체크
+# - 저장 후 Deployments → Redeploy
+#
+# QR 고정 주소:
+#   회사소개서 → https://qrqr-profile.vercel.app/go
+#   지명원     → https://qrqr-soq.vercel.app/go2
