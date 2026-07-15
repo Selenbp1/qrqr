@@ -33,7 +33,7 @@ module.exports = (_req, res) => {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0f2744" />
-  <title>Solux 회사소개서</title>
+  <title>Solux 브로슈어</title>
   <style>
     :root {
       --bg: #0f2744;
@@ -108,8 +108,8 @@ module.exports = (_req, res) => {
 <body>
   <main class="card">
     <div class="eyebrow">SOLUX</div>
-    <h1>회사소개서</h1>
-    <p>원하시는 소개서를 선택해 주세요.</p>
+    <h1>브로슈어</h1>
+    <p>원하시는 브로슈어를 선택해 주세요.</p>
     <div class="links">
       ${buttons}
     </div>

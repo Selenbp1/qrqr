@@ -19,5 +19,5 @@
 # - 저장 후 Deployments → Redeploy
 #
 # QR 고정 주소:
-#   회사소개서 → https://qrqr-profile.vercel.app/go
+#   브로슈어 → https://qrqr-profile.vercel.app/go
 #   지명원     → https://qrqr-soq.vercel.app/go2
