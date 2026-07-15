@@ -4,9 +4,10 @@
   "buildCommand": "npm run build",
   "installCommand": "npm install --omit=dev",
   "rewrites": [
-    { "source": "/go1", "destination": "/api/go" },
+    { "source": "/", "destination": "/api/landing" },
+    { "source": "/go", "destination": "/api/landing" },
+    { "source": "/go1", "destination": "/api/landing" },
     { "source": "/go2", "destination": "/api/go" },
-    { "source": "/go", "destination": "/api/go" },
     { "source": "/health", "destination": "/api/health" }
   ]
 }
