@@ -1,0 +1,21 @@
+# Brochure 랜딩 (qrqr-profile 전용)
+#
+# 동작:
+#   QR (qr_brochure.png) → https://qrqr-profile.vercel.app/
+#                       → B2B / B2G / B2C 링크 화면
+#                       → 각 PDF
+#
+# Vercel (qrqr-profile만):
+#   1. Settings → Git → Production Branch = feature/brochure-landing
+#   2. Environment Variables (Production):
+#        LINK_B2B = https://selenbp1.github.io/qrqr/b2b.pdf
+#        LINK_B2G = https://selenbp1.github.io/qrqr/b2g.pdf
+#        LINK_B2C = https://selenbp1.github.io/qrqr/b2c.pdf
+#   3. Deployments → Redeploy
+#
+# qrqr-soq:
+#   Production Branch = main 유지 (변경 없음)
+#
+# PDF 교체:
+#   docs/b2b.pdf, docs/b2g.pdf, docs/b2c.pdf 파일을 덮어쓰고 push
+#   (환경 변수 URL이 같으면 QR/랜딩 수정 불필요)
