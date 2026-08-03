@@ -1,21 +1,22 @@
-# Brochure 랜딩 (qrqr-profile 전용)
+# Brochure 랜딩 (qrqr-profile) + SOQ 랜딩 (qrqr-soq)
 #
-# 동작:
-#   QR (qr_brochure.png) → https://qrqr-profile.vercel.app/
-#                       → B2B / B2G / B2C 링크 화면
-#                       → 각 PDF
+# === qrqr-profile ===
+# Production Branch: feature/brochure-landing
+# Env (Production):
+#   LANDING_MODE = brochure
+#   LINK_B2B / LINK_B2G / LINK_B2C = 각 PDF URL
+# QR: qr_brochure.png → https://qrqr-profile.vercel.app/
 #
-# Vercel (qrqr-profile만):
-#   1. Settings → Git → Production Branch = feature/brochure-landing
-#   2. Environment Variables (Production):
-#        LINK_B2B = https://selenbp1.github.io/qrqr/b2b.pdf
-#        LINK_B2G = https://selenbp1.github.io/qrqr/b2g.pdf
-#        LINK_B2C = https://selenbp1.github.io/qrqr/b2c.pdf
-#   3. Deployments → Redeploy
+# === qrqr-soq ===
+# Production Branch: feature/brochure-landing  (main 아님!)
+# Env (Production):
+#   LANDING_MODE = soq
+#   LINK_1_LABEL = 회사소개서
+#   LINK_1_URL   = https://selenbp1.github.io/qrqr/introduction_%20250311.pdf
+#   LINK_2_LABEL = 지명원
+#   LINK_2_URL   = https://selenbp1.github.io/qrqr/soq.pdf
+# QR: qr_introduction.png → https://qrqr-soq.vercel.app/ 또는 /go2
 #
-# qrqr-soq:
-#   Production Branch = main 유지 (변경 없음)
-#
-# PDF 교체:
-#   docs/b2b.pdf, docs/b2g.pdf, docs/b2c.pdf 파일을 덮어쓰고 push
-#   (환경 변수 URL이 같으면 QR/랜딩 수정 불필요)
+# 배포 후 확인:
+#   /health → "mode":"landing", "landingMode":"brochure"|"soq"
+#   /       → 링크 선택 화면

@@ -1,24 +1,16 @@
+const { getConfig } = require("./landing-config");
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 module.exports = (_req, res) => {
-  const links = [
-    {
-      label: "B2B",
-      href:
-        process.env.LINK_B2B?.trim() ||
-        "https://selenbp1.github.io/qrqr/b2b.pdf",
-    },
-    {
-      label: "B2G",
-      href:
-        process.env.LINK_B2G?.trim() ||
-        "https://selenbp1.github.io/qrqr/b2g.pdf",
-    },
-    {
-      label: "B2C",
-      href:
-        process.env.LINK_B2C?.trim() ||
-        "https://selenbp1.github.io/qrqr/b2c.pdf",
-    },
-  ];
+  const { title, heading, subtitle, links } = getConfig();
 
   const buttons = links
     .map(
@@ -33,11 +25,10 @@ module.exports = (_req, res) => {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0f2744" />
-  <title>Solux 브로슈어</title>
+  <title>${escapeHtml(title)}</title>
   <style>
     :root {
       --bg: #0f2744;
-      --bg-soft: #16355a;
       --text: #f4f7fb;
       --muted: #b7c5d8;
       --btn: #f0f4f8;
@@ -108,8 +99,8 @@ module.exports = (_req, res) => {
 <body>
   <main class="card">
     <div class="eyebrow">SOLUX</div>
-    <h1>브로슈어</h1>
-    <p>원하시는 브로슈어를 선택해 주세요.</p>
+    <h1>${escapeHtml(heading)}</h1>
+    <p>${escapeHtml(subtitle)}</p>
     <div class="links">
       ${buttons}
     </div>
@@ -122,12 +113,3 @@ module.exports = (_req, res) => {
   res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
   res.end(html);
 };
-
-function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}

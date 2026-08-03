@@ -7,7 +7,7 @@
     { "source": "/", "destination": "/api/landing" },
     { "source": "/go", "destination": "/api/landing" },
     { "source": "/go1", "destination": "/api/landing" },
-    { "source": "/go2", "destination": "/api/go" },
+    { "source": "/go2", "destination": "/api/landing" },
     { "source": "/health", "destination": "/api/health" }
   ]
 }
